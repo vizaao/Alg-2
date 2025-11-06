@@ -93,3 +93,18 @@ int ChecaHeap(heap *heap){
     }
     return true;
 }
+})
+
+void imprimeheap(heap *heap){
+    if(heap -> tamanho == NULL){
+        printf("heap vazia");
+        return;
+    }
+
+    printf("heap: ");
+    for (int i = 1; i <= heap -> tamanho; i++){
+        printf("%d", heap -> vetor[i]);
+    }
+    
+    printf("/n");
+}
