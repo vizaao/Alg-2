@@ -9,7 +9,7 @@ long long heap_trocas = 0; //contador para sabermos o numero de trocas realizads
 
 
 //funcao basica de troca
-void trocar (int *a, int *b){
+void trocar (int *a, int *b)    {
     int aux = *a;
     *a = *b;
     *b = aux;
@@ -22,15 +22,21 @@ void InicHeap (struct heap *heap){
 }
 
 void InsereHeap(struct heap *heap, int valor){
-    if (heap->tamanho >= Max)
-        return;
-    
-    int i = heap->tamanho++;
-    heap->vetor[i] = valor;
 
-    while (i > 0 && heap->vetor[(i - 1) / 2] < heap->vetor[i]){
-        trocar(&heap->vetor[i], &heap->[(i - 1) / 2]);
-        i = (i - 1) / 2;
+    heap->tamanho++;
+    int i = heap->tamanho;
+    strncpy(heap->vetor[i].paciente, paciente, Max_nome - 1);
+    heap->vetor[i].paciente[Max_nome - 1] = '\0';
+    heap->vetor[i].prioridade = prioridade;
+    
+    while (i > 0) {
+        int pai = i/2;
+        if (heap->vetor[pai].prioridade < hep->vetor[i].prioridade){
+            paciente aux = heap->vetor[pai];
+            heap->vetor[pai] = heap->vetor[i];
+            heap->vetor[i] = aux;
+            i = pai;
+        }
     }
 }
 
@@ -39,7 +45,7 @@ void Heapfy (struct heap *heap, int i, int tamanho){
     int esquerda = 2*i + 1;
     int direita = 2*i + 2;
 
-    if (esquerda <= tamanho){
+    if (esquerdax <= tamanho){
         heap_comparacoes++;
         if (heap->vetor[esquerda].prioridade > heap->vet[maior].prioridade)
             maior = esquerda;
@@ -57,13 +63,29 @@ void Heapfy (struct heap *heap, int i, int tamanho){
     }
 }
 
-void RemoveHeap(struct heap *heap){
+void RemoveHeap(struct heap *heap, paciente, *paciente_removido){
 
-    int raiz = heap->vetor[0];
+    if (paciente_removido) *paciente_removido = heap->vetor[0];
+        heap->vetor[0] = heap-vetor[heap->tamanho];
+    heap->tamanho--;
 
-    heap->vetor[0] = heap->vetor[--heap->tamanho];
     heapfy(heap, 0);
-    return raiz;
+
+    int n = heap->tamanho;
+    int i = 0;
+    while (0){
+        int esquerda = 2*i + 1; direita = 2*1 +  2; maior = i;
+        if (esquerda < n && heap->vetor[esquerda].prioridade > heap->vetor[maior].prioridade)
+            maior = esquerda;
+        if (direita < n && heap->vetor[direita].prioridade > heap->vetor[mior].prioridade)
+            maior = direita;
+        if (maior != i){
+            paciente aux = heap->vetor[i];
+            heap->vetor[i] = heap->vetor[aux];
+            heap->vetor[maior] = aux;
+        }
+        return;
+    }
 }
 
 void HeapSort(int *vetor, int tamanho){
@@ -93,18 +115,31 @@ int ChecaHeap(heap *heap){
     }
     return true;
 }
-})
 
-void imprimeheap(heap *heap){
-    if(heap -> tamanho == NULL){
-        printf("heap vazia");
-        return;
+int AlteraHeapI(heap *heap, const char *nome, int Prioridade_Nova){
+    for (int = 0; i < heap->tamanho; i++){
+        if (strcmp(heap->vetor[i].nome, nome) == 0){
+            int velha_prioridade = heap->vetor[i].prioridade;
+            heap->vetor[i].prioridade = Prioridade_Nova;
+            if (Prioridade_Nova > velha_prioridade){
+                int index = i;
+                while (index > 0){
+                    int pai = index/2;
+                    if (heap->vetor[pai].prioridade < heap->vetor[index].prioridade)
+                        trocar(paciente, heap->vetor[pai], heap->vetor[index];)
+                }
+            }
+            else if (Prioridade_Nova > velha_prioridade){
+                int index = i;
+                while (1){
+                    int esquerda = 2*index + 1;
+                    int direita = 2*index +2 ;
+                    int maior = index;
+                    if (esquerda <= heap->tamanho && heap->vetor[esquerda].prioridade > heap->vetor[maior].prioridade)
+                        maior = esquerda;
+                    if (direita <= heap->tamanho &&)
+                }
+            }
+        }
     }
-
-    printf("heap: ");
-    for (int i = 1; i <= heap -> tamanho; i++){
-        printf("%d", heap -> vetor[i]);
-    }
-    
-    printf("/n");
 }
