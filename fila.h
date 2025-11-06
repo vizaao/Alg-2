@@ -8,54 +8,48 @@
 #define Max_nome 20
 
 //definir a estrutura para os pacientes
+// CORRIGIDO: Removido 'paciente' no final da definição
 struct paciente { 
     char paciente[Max_nome];
     int prioridade;
-} paciente;
+};
 
+// CORRIGIDO: Removido 'heap' no final e 'paciente' -> 'struct paciente'
 struct heap{
     struct paciente vetor[Maximo_Pacientes];
     int tamanho;
-}heap;
-
-long long heap_cmp = 0;
-long long heap_swaps = 0;
+};
 
 //funcao para trocar pacientes
-void trocar (paciente *a, paciente *b);
+// CORRIGIDO: 'paciente' -> 'struct paciente'
+void trocar (struct paciente *a, struct paciente *b);
 
 //função que inicia o heap
-void InicHeap (struct heap *Heap);
+// CORRIGIDO: 'struct heap *Heap' -> 'struct heap *h' para padronizar
+void InicHeap (struct heap *h);
 
 //transforma o vetor em um heap maximo
-void Heapfy (struct heap *heap, int i);
+void Heapfy (struct heap *h, int i);
 
 //funcao responsavel por adicionar novos pacientes na fila
-void InsereHeap(struct heap *heap, paciente novo);
+// CORRIGIDO: 'paciente' -> 'struct paciente'
+void InsereHeap(struct heap *h, struct paciente novo);
 
 //funcao responsavel por remover os pacientes atendidos da fila
-void RemoveHeap(struct heap *heap, paciente *removido)
+// CORRIGIDO: 'void' -> 'int', 'paciente' -> 'struct paciente', ';' adicionado
+int RemoveHeap(struct heap *h, struct paciente *removido);
 
 //funcao que imprime o estado da fila
-void ImprimeHeap(struct heap *heap);
+void ImprimeHeap(struct heap *h);
 
 //funcao responsavel por alterar a prioridade entre os pacientes da fila
-int AlteraHeap(struct heap *heap, char nome[], int nova);
+int AlteraHeap(struct heap *h, char nome[], int nova);
 
-#endif
+// --- CORRIGIDO: Protótipos que faltavam foram adicionados ---
+int ChecaHeap(struct heap *h);
 
+void ConstroiHeap(struct heap *h);
 
-
-
-
-
-
-
-
-
-
-
-
-
+void HeapSort(struct heap *h);
 
 #endif
