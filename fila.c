@@ -28,7 +28,7 @@ void Heapfy (struct heap *heap, int i){
 
     if (esquerda < heap->tamanho){
         heap_comparacoes++;
-        if (heap->vetor[esquerda].prioridade > heap->vet[maior].prioridade)
+        if (heap->vetor[esquerda].prioridade > heap->vetor[maior].prioridade)
             maior = esquerda;
     }
 
@@ -56,7 +56,7 @@ void InsereHeap(struct heap *heap, paciente novo){
     while (i > 0) {
         int pai = (i - 1) / 2;
         heap_comparacoes++;
-        if (heap->vetor[pai].prioridade < hep->vetor[i].prioridade){
+        if (heap->vetor[pai].prioridade < heap->vetor[i].prioridade){
             trocar(&heap->vetor[pai], &heap->vetor[i]);
             i = pai;
         } else break;
@@ -77,7 +77,7 @@ void RemoveHeap(struct heap *heap, paciente *removido){
 
 //imprime o conteudo da heap
 void ImprimeHeap(struct heap *heap){
-    printf("\nFila de Prioridades (tamanho=%d) :\n", heap->tamanho);
+    printf("\n Paciente: (tamanho=%d) :\n", heap->tamanho);
     for (i = 0; i < heap->tamanho; i++)
         printf("%s - prioridade %d\n", heap->vetor[i].nome , heap->vetor[i].prioridade);
 }
@@ -110,7 +110,7 @@ int AlteraHeap(struct heap *heap, char nome[], int nova){
                 int j = i;
                 while (j > 0){
                     int pai = (j - 1) / 2;
-                    heap_comparacoes++
+                    heap_comparacoes++;
                     if (heap->vetor[pai].prioridade < heap->vetor[index].prioridade)
                         trocar(paciente, heap->vetor[pai], heap->vetor[index];)
                 }
@@ -133,33 +133,19 @@ int AlteraHeap(struct heap *heap, char nome[], int nova){
     }return 0;
 }
 
-struct paciente* HeapSort(heap *heap, int *n, long long *heap_comparaces, long long *heap_trocas){
-    if (n) *n = heap->tamanho;
-    if (heap->tamanho == 0) return NULL;
+void HeapSort(struct heap *heap){
+    int n = heap -> tamanho;
 
-    heap T;
-    T.tamanho = heap->tamanho;
-    for (int i = 1; i <= heap->tamanho; i++)
-        T.vetor[i] = heap->vetor[i];
-    
-    heap_comparaces = 0; heap_trocas = 0;
-
-    int n = T.tamanho;
-
-    for (int i = n/2; i >= 0; i--) 
-        Heapfy(&T, i, n);
-    
-    for (int i = n; i >= 1; i--){
-        trocar(paciente, T.vetor[i], T.vetor[0]);
-        heap_trocas++;
-        Heapfy(&T, 1, i-1);
+    for (int i = n / 2 - 1; i >= 0; i--){
+        Heapfy(struct heap *heap);
     }
-    Paciente *resultado = malloc(sizeof(Paciente)*n);
-        for (int i = 0; i < n; ++i)     
-            resultado[i] = T.vet[n - i];
 
+    for(i = n; i > 1; i++){
+        trocar(&heap -> vetor[0], &heap -> vetor[i])
+        heap -> tamanho --;
+        Heapfy(heap, 0);
+    }
 
-    if (out_cmp) *out_cmp = heap_cmp;
-    if (out_swaps) *out_swaps = heap_swaps;
-    return resultado;
+    heap -> tamanho = n;
 }
+
