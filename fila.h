@@ -18,9 +18,6 @@ struct heap{
     int tamanho;
 }heap;
 
-long long heap_cmp = 0;
-long long heap_swaps = 0;
-
 //funcao para trocar pacientes
 void trocar (paciente *a, paciente *b);
 
@@ -34,7 +31,7 @@ void Heapfy (struct heap *heap, int i);
 void InsereHeap(struct heap *heap, paciente novo);
 
 //funcao responsavel por remover os pacientes atendidos da fila
-void RemoveHeap(struct heap *heap, paciente *removido)
+void RemoveHeap(struct heap *heap, paciente *removido);
 
 //funcao que imprime o estado da fila
 void ImprimeHeap(struct heap *heap);
@@ -42,20 +39,7 @@ void ImprimeHeap(struct heap *heap);
 //funcao responsavel por alterar a prioridade entre os pacientes da fila
 int AlteraHeap(struct heap *heap, char nome[], int nova);
 
-#endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//constroi a fila de pacientes
+void ConstroiHeap(struct heap *heap);
 
 #endif
