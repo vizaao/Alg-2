@@ -139,6 +139,33 @@ void HeapSort(struct heap *h){
     h -> tamanho = n;
 }
 
+int Particiona(struct heap *h, int a, int b){
+    int pivo_prio = h -> vetor[b].prioridade
+    int m = a - 1;
+    int i = a;
+
+    for(i = a; i<=b - 1; i++){
+        if h -> vetor[i].prioridade <= pivo_prio{
+            m = m+1;
+            trocar(&h->vetor[m], &h->vetor[i]);
+        }
+    }
+
+    trocar(&h->vetor[m + 1], &h->vetor[b]);
+
+    return (m+1);
+}
+
+void quicksort(int vetor, int a, int b){
+    if a>=b{
+        return;
+    }
+
+    int m = Particiona(h, a, b);
+    quicksort(h, a, m - 1);
+    quicksort(h, m + 1, b);
+}
+
 int mediana(struct heap *h, int a, int b){
     int meio = (a + b) / 2;
     int x = h -> vetor[a].prioridade;
