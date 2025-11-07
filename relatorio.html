@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP ALGORITMOS II 2025 - Pronto Socorro "Heap or Quick"</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 900px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        pre {
+            background-color: #eee;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: "Courier New", Courier, monospace;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .student-info {
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .texto-justificado{
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trabalho Prático de Algoritmos II (2025)</h1>
+        <div class="student-info">
+            <p><strong>Alunos:</strong> Gabriel de Oliveira Ostroski e Vincenzo Rigolino Costa</p>
+            <p><strong>Título:</strong> Pronto Socorro "Heap or Quick"</p>
+        </div>
+
+        <h2>Relatório</h2>
+        
+        <h3>Introdução</h3>
+        <p class="texto-justificado"> 
+            Este trabalho teve como objetivo a implementação de um sistema de fila de prioridades
+            para um "pronto-socorro", utilizando o Tipo Abstrato de Dados Heap. Também foram usados os 
+            algoritmos de ordenação HeapSort, QuickSort e SelectSort.
+
+        </p>
+
+        <h3>Implementação do TAD Heap</h3>
+        <p class="texto-justificado">
+            O Heap foi implementado em um vetor, seguindo o modelo visto em sala de aula.
+            O principal diferencial em realção a estrutura vista em sala de aula, foi o uso de ponteiros,
+            isso deixou o trabalho um pouco mais complexo mas foi interessante unir os conhecimentos das matérias de 
+            Alg II e Prog I.
+            As principais operações implementadas foram:
+        </p class="texto-justificado">
+        <ul>
+            <li><strong>Trocar:</strong> Essa é uma função comum usada para realizar trocas, aqui ela realiza a troca de "pacientes".</li>
+            <li><strong>InicHeap:</strong> Essa função é responsável por iniciar a fila a partir de um valor (0).</li>
+            <li><strong>Heapfy:</strong> Transforma a fila de prioridades (fila/vetor) em um heap máximo (estudado em aula).</li>
+            <li><strong>InsereHeap:</strong> Função responsável por inserir um paciente (elemento) novo na fila.</li>
+            <li><strong>RemoveHeap:</strong> Função responsável por remover um paciente (elemento) da fila.</li>
+            <li><strong>ImprimeHeap:</strong> Essa função irá imprimir o estado atual da fila (como é pedido na especificação, ela precisa estar disponível para impressão a qualquer momento).</li>
+            <li><strong>AlteraHeap:</strong> Essa função irá alterar a prioridade entre os pacientes de acordo com as observações da enfermeira.</li>
+            <li><strong>ConstroiHeap:</strong> Essa função constrói o heap usando o heapfy</li>
+            <li><strong>ChecaHeap:</strong> Verifica se a estrutura/fila é um heap válido.</li>
+            <li><strong>HeapSort:</strong> Implementação do algoritmo de ordenação HeapSort.</li>
+        </ul>
+        
+        <h3>Implementação dos Algoritmos de Ordenação</h3>
+        <p>
+            Além do HeapSort, implementamos o QuickSort e o SelectSort para fins de comparação.
+        </p>
+        <ul>
+            <li><strong>SelectSort:</strong> [Breve descrição da implementação e como as contagens foram feitas].</li>
+            <li><strong>QuickSort (Mediana de Três):</strong> [Explique como o pivô foi escolhido, encontrando a mediana entre o primeiro, o meio e o último elemento do sub-vetor. Detalhe como isso ajuda a evitar o pior caso do QuickSort e como a partição (Lomuto ou Hoare) foi implementada].</li>
+        </ul>
+
+        <h3>Comparação e Resultados (N=1024)</h3>
+        <p>
+            Foi criada uma opção no menu para gerar um vetor de 1024 números aleatórios e
+            executar os três algoritmos de ordenação sobre os mesmos dados. Os resultados
+            obtidos foram (exemplo):
+        </p>
+        <pre>
+-------------------------------------------------
+Comparacao de Algoritmos (Vetor Aleatorio, N=1024)
+-------------------------------------------------
+Resultado QuickSort (Mediana de Tres):
+  > Comparações: [COLOQUE SEU RESULTADO AQUI]
+  > Trocas:        [COLOQUE SEU RESULTADO AQUI]
+  > Tempo:         [COLOQUE SEU RESULTADO AQUI]
+
+Resultado SelectSort:
+  > Comparações: [COLOQUE SEU RESULTADO AQUI]
+  > Trocas:        [COLOQUE SEU RESULTADO AQUI]
+  > Tempo:         [COLOQUE SEU RESULTADO AQUI]
+
+Resultado HeapSort:
+  > Comparações: [COLOQUE SEU RESULTADO AQUI]
+  > Trocas:        [COLOQUE SEU RESULTADO AQUI]
+  > Tempo:         [COLOQUE SEU RESULTADO AQUI]
+        </pre>
+        
+        <h4>Análise (Qual foi melhor na prática?)</h4>
+        <p>
+            [Aqui você deve analisar os resultados. Espera-se que o QuickSort seja o mais rápido em tempo,
+            seguido pelo HeapSort, e muito atrás o SelectSort. Em termos de comparações/trocas,
+            o QuickSort e o HeapSort devem ter complexidade O(n log n), enquanto o SelectSort
+            é O(n^2) em comparações e O(n) em trocas. Compare os números obtidos
+            com a teoria].
+        </p>
+
+        <h3>Interface com o Usuário</h3>
+        <p>
+            [Descreva o menu de opções criado para a Enfermeira Chefe e como
+            é a interação para cadastrar, chamar o próximo, alterar prioridade, etc.]
+        </p>
+
+        <!-- ================================================== -->
+        <!-- 2. LISTAGEM DO PROGRAMA                          -->
+        <!-- ================================================== -->
+        <h2>2. Listagem do Programa</h2>
+        <p>
+            O código-fonte completo do programa em C está disponível no link abaixo
+            (conforme solicitado, com a extensão .txt):
+        </p>
+        <p style="text-align: center; font-size: 1.2em;">
+            <a href="HeapAndQuick.c.txt" target="_blank">HeapAndQuick.c.txt</a>
+        </p>
+        <p>
+            (O código-fonte também está colado abaixo para facilitar a correção).
+        </p>
+        <!-- Você pode colar o código aqui DENTRO de um <pre> -->
+        <pre>
+/*
+ * Copie e cole o conteúdo final do seu
+ * arquivo HeapAndQuick.c.txt aqui.
+ */
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    printf("Exemplo de listagem de codigo...\n");
+    return 0;
+}
+
+        </pre>
+
+        <!-- ================================================== -->
+        <!-- 3. LOG DE TESTES                                 -->
+        <!-- ================================================== -->
+        <h2>3. Log dos Testes Executados</h2>
+        <p>
+            Abaixo estão os logs de execução do programa, demonstrando os diversos
+            casos de teste executados.
+        </p>
+
+        <h3>Teste 1: Inserção e Remoção Simples (Heap)</h3>
+        <pre>
+[COPIE E COLE A SAÍDA DO SEU PROGRAMA AQUI]
+Exemplo:
+> Inserindo paciente 'Ana' (prioridade 5)
+> Inserindo paciente 'Bruno' (prioridade 8)
+> Inserindo paciente 'Carla' (prioridade 3)
+> Imprimindo Heap:
+  1. [8] Bruno
+  2. [5] Ana
+  3. [3] Carla
+> Chamando proximo (Removendo):
+  > Atendendo: [8] Bruno
+> Imprimindo Heap:
+  1. [5] Ana
+  2. [3] Carla
+        </pre>
+
+        <h3>Teste 2: Teste do AlteraHeap (Aumentando Prioridade)</h3>
+        <pre>
+[COPIE E COLE A SAÍDA DO SEU PROGRAMA AQUI]
+Exemplo:
+> Heap atual:
+  1. [5] Ana
+  2. [3] Carla
+> Alterando prioridade de 'Carla' para 9...
+> Imprimindo Heap (apos fix-up):
+  1. [9] Carla
+  2. [5] Ana
+        </pre>
+        
+        <h3>Teste 3: Teste do AlteraHeap (Diminuindo Prioridade)</h3>
+        <pre>
+[COPIE E COLE A SAÍDA DO SEU PROGRAMA AQUI]
+Exemplo:
+> Heap atual:
+  1. [9] Carla
+  2. [5] Ana
+> Alterando prioridade de 'Carla' para 2...
+> Imprimindo Heap (apos fix-down):
+  1. [5] Ana
+  2. [2] Carla
+        </pre>
+
+        <h3>Teste 4: Teste da Comparação de Ordenação (N=1024)</h3>
+        <pre>
+[COPIE E COLE A SAÍDA DO SEU PROGRAMA DA COMPARAÇÃO]
+Gerando vetor aleatorio de 1024 elementos...
+-------------------------------------------------
+Comparacao de Algoritmos (Vetor Aleatorio, N=1024)
+-------------------------------------------------
+Executando QuickSort (Mediana de Tres)...
+Resultado QuickSort:
+  > Comparações: [SEU RESULTADO]
+  > Trocas:        [SEU RESULTADO]
+  > Tempo:         [SEU RESULTADO]
+
+Executando SelectSort...
+Resultado SelectSort:
+  > Comparações: [SEU RESULTADO]
+  > Trocas:        [SEU RESULTADO]
+  > Tempo:         [SEU RESULTADO]
+
+(Execute também o HeapSort aqui)
+        </pre>
+    </div>
+</body>
+</html>
