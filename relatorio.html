@@ -66,8 +66,17 @@
         <p class="texto-justificado">
             Começamos o projeto estudando as funções de heap que foram implementadas em aula, e após estuda-lás, começamos a adaptar as suas estruturas
             para as implementar no contexto do trabalho. Revisamos alguns conceitos básicos de Heap, e estudamos como fazer todos esses processos com o uso de 
-            apontadores, essa foi a etapa mais demorada do projeto e a que mais fizemos alterações.
+            apontadores, essa foi a etapa mais demorada do projeto e a que mais fizemos alterações. 
             Depois de debugar as funções principais relacionadas ao Heap, começamos a implementar os algoritmos de ordenação (HeapSort, QuickSort e SelectSort).
+            <p
+            class="texto-justificado">
+            A função RemoveHeap, remove o paciente de maior prioridade da fila. Para implementá-la, dividimos em 2 passos: O primeiro que é a troca, em que
+            pega o paciente da raiz |(vetor[0]) para salvar e o substitui pelo último paciente do heap (vetor[tamanho-1]). O segundo passo, diminui o tamanho da
+            heap e chama o Heapfy(heap,0) para jogar o paciente na posição correta, restaurando a ordem de Max-Heap.
+            Enquando a função AlteraHeap, encontra um paciente pelo nome e muda sua prioridade. Dividimos em 3 passos: O primeiro, que percorre o vetor até achar
+            o paciente que se o nome for igual ao procurado, altera sua prioridade. O segundo passo muda o valor da prioridade diretamente na struct, enquanto o
+            terceiro e último passo faz uma correção, que se a nova prioridade for maior, o paciente sobe no heap (o loop while (j > 0) que compara com o pai). Mas
+            se a nova prioridade for menor, ele chama Heapfy() na posição dele mesmo, que joga pra baixo e garante a ordem do Max-Heap.  
         </p>
         <p class="texto-justificado">
             Após esssa etapa ser realizada, com muito esforço, nos reunimos para implementar a função Main/Menu do pronto socorro.
