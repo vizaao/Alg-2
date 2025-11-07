@@ -127,6 +127,20 @@
             <li><strong>QuickSort:</strong> Implementação do algoritmo de ordenação QuickSort recursivo.</li>
             <li><strong>SelectSort:</strong> Implementação do algoritmo de ordenação SelectSort. </li>
         </ul>
+        <h1>Conclusão</h1>
+        <p class="texto-justificado">
+            Após realizarmos diversos testes, com diversos vetores aleatórios diferentes, pudemos obter obter os seguintes resultados:
+            <ul>
+                <li><strong>Mais comparações:</strong> O algoritmo que mais realiza comparações é o SelectSort, pois, para o número de comparações, o algoritmo segue a 
+                    fórmula da soma dos n primeiros numeros naturais, como n = 1024, o valor de comparações é igual a 523776.</a></li>
+                <li><strong>Menos comparações: </strong> O algoritmo que menos realiza comparações é o QuickSort, pois utiliza a ideia de "divisão e conquista". 
+                A média de comparações nos testes esteve em torno de 9500 comparações para os vetores de 1024 elementos.</li>
+                <li><strong>Mais trocas: </strong> O HeapSort realiza mais trocas, pois toda vez que o nó pai é removido da heap para ser alocado no vetor ordenado, a heap é "destruída"
+                e precisa ser refeita do zero.</li>
+                <li><strong>Menos trocas:</strong> O SelectSort realiza menos comparações, porque ele só realiza a troca no final de cada passagem pelo vetor completo, armazenando
+                o menor valor encontrado, e trocando para a posição ordenada correta, garantindo no máximo (n-1) trocas.</li>
+            </ul>
+        </p>
     </div>
 </body>
 </html>
