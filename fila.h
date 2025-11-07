@@ -4,7 +4,7 @@
 #define true 1
 #define false 0
 
-#define Maximo_Pacientes 1024
+#define Maximo_pacientes 1024
 #define Max_nome 20
 
 //definir a estrutura para os pacientes
@@ -14,7 +14,7 @@ struct paciente {
 } paciente;
 
 struct heap{
-    struct paciente vetor[Maximo_Pacientes];
+    struct paciente vetor[Maximo_pacientes];
     int tamanho;
 }heap;
 
@@ -41,5 +41,9 @@ int AlteraHeap(struct heap *heap, char nome[], int nova);
 
 //constroi a fila de pacientes
 void ConstroiHeap(struct heap *heap);
+
+//funcao responsavel por conferir se a fila de prioridades é um heap valido
+void ChecaHeap(struct heap *heap)
+
 
 #endif

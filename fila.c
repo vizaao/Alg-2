@@ -27,7 +27,7 @@ void Heapfy (struct heap *heap, int i){
 
     if (esquerda < heap->tamanho){
         heap_comparacoes++;
-        if (heap->vetor[esquerda].prioridade > heap->vet[maior].prioridade)
+        if (heap->vetor[esquerda].prioridade > heap->vetor[maior].prioridade)
             maior = esquerda;
     }
 
