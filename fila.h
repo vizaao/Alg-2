@@ -22,7 +22,7 @@ struct heap {
 // funcao para trocar pacientes
 void trocar(struct paciente *a, struct paciente *b);
 
-// função que inicia o heap
+// funcao que inicia o heap
 void InicHeap(struct heap *heap);
 
 // transforma o vetor em um heap máximo
