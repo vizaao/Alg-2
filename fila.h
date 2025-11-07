@@ -4,61 +4,61 @@
 #define true 1
 #define false 0
 
-#define Maximo_pacientes 1024
+#define Maximo_Pacientes 1024
 #define Max_nome 20
 
-//definir a estrutura para os pacientes
+// definir a estrutura para os pacientes
 struct paciente { 
     char paciente[Max_nome];
     int prioridade;
-} paciente;
+};
 
-struct heap{
-    struct paciente vetor[Maximo_pacientes];
+// definir a estrutura do heap
+struct heap {
+    struct paciente vetor[Maximo_Pacientes];
     int tamanho;
-}heap;
+};
 
-//funcao para trocar pacientes
-void trocar (paciente *a, paciente *b);
+// funcao para trocar pacientes
+void trocar(struct paciente *a, struct paciente *b);
 
-//função que inicia o heap
-void InicHeap (struct heap *Heap);
+// função que inicia o heap
+void InicHeap(struct heap *heap);
 
-//transforma o vetor em um heap maximo
-void Heapfy (struct heap *heap, int i);
+// transforma o vetor em um heap máximo
+void Heapfy(struct heap *heap, int i);
 
-//funcao responsavel por adicionar novos pacientes na fila
-void InsereHeap(struct heap *heap, paciente novo);
+// funcao responsavel por adicionar novos pacientes na fila
+void InsereHeap(struct heap *heap, struct paciente novo);
 
-//funcao responsavel por remover os pacientes atendidos da fila
-void RemoveHeap(struct heap *heap, paciente *removido);
+// funcao responsavel por remover os pacientes atendidos da fila
+int RemoveHeap(struct heap *heap, struct paciente *removido);
 
-//funcao que imprime o estado da fila
+// funcao que imprime o estado da fila
 void ImprimeHeap(struct heap *heap);
 
-//funcao responsavel por alterar a prioridade entre os pacientes da fila
+// funcao responsavel por alterar a prioridade entre os pacientes da fila
 int AlteraHeap(struct heap *heap, char nome[], int nova);
 
-//constroi a fila de pacientes
+// constroi a fila de pacientes
 void ConstroiHeap(struct heap *heap);
 
-//funcao responsavel por conferir se a fila de prioridades é um heap valido
+// funcao responsavel por conferir se a fila de prioridades é um heap valido
 void ChecaHeap(struct heap *heap);
 
-//funcao que implementa o algoritmo de ordenacao heapsort, usado para criar uma fila em ordem
+// funcao que implementa o algoritmo de ordenacao heapsort
 void HeapSort(struct heap *h);
 
-// funcao que retorna o índice do elemento da mediana entre o primeiro, meio e último
+// funcao que retorna o índice da mediana entre o primeiro, meio e último
 int Mediana(struct heap *h, int a, int b);
 
-// funcao que particiona o vetor de acordo com o pivô e conta comparações/trocas
+// funcao que particiona o vetor e conta comparações/trocas
 int Particiona(struct heap *h, int a, int b, int *comparacoes, int *trocas);
 
-
-// funcao que ordena o heap por quicksort recursivo visto em aula
+// funcao que ordena o heap por quicksort recursivo
 void QuickSort(struct heap *h, int a, int b, int *comparacoes, int *trocas);
 
-// funcao que ordena o vetor por selectsort e conta comparações/trocas
+// funcao que ordena o heap por selectsort
 void SelectSort(struct heap *h, int *comparacoes, int *trocas);
 
 #endif
