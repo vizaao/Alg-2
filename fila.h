@@ -47,18 +47,18 @@ void ConstroiHeap(struct heap *heap);
 void ChecaHeap(struct heap *heap);
 
 // funcao que implementa o algoritmo de ordenacao heapsort
-void HeapSort(struct heap *h);
+void HeapSort(struct heap *heap);
 
 // funcao que retorna o índice da mediana entre o primeiro, meio e último
-int Mediana(struct heap *h, int a, int b);
+int Mediana(struct heap *heap, int a, int b);
 
 // funcao que particiona o vetor e conta comparações/trocas
-int Particiona(struct heap *h, int a, int b, int *comparacoes, int *trocas);
+int Particiona(struct heap *heap, int a, int b, int *comparacoes, int *trocas);
 
 // funcao que ordena o heap por quicksort recursivo
-void QuickSort(struct heap *h, int a, int b, int *comparacoes, int *trocas);
+void QuickSort(struct heap *heap, int a, int b, int *comparacoes, int *trocas);
 
 // funcao que ordena o heap por selectsort
-void SelectSort(struct heap *h, int *comparacoes, int *trocas);
+void SelectSort(struct heap *heap, int *comparacoes, int *trocas);
 
 #endif
