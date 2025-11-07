@@ -174,7 +174,7 @@ int Particiona(struct heap *h, int a, int b, int *comparacoes, int *trocas){
     return m + 1;
 }
 
-void quicksort(struct heap *h, int a, int b, int *comparacoes, int *trocas) {
+void quicksort(struct heap *h, int a, int b, int *comparacoes, int *trocas){
     if (a >= b)
         return;
 
