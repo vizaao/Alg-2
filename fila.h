@@ -45,5 +45,7 @@ void ConstroiHeap(struct heap *heap);
 //funcao responsavel por conferir se a fila de prioridades é um heap valido
 void ChecaHeap(struct heap *heap)
 
+//funcao que implementa o algoritmo de ordenacao heapsort, usado para criar uma fila em ordem
+void HeapSort(struct heap *h)
 
 #endif

@@ -124,3 +124,16 @@ void ChecaHeap(struct heap *heap){
     printf("É Heap!");
 }
 
+void HeapSort(struct heap *h){
+    int n = h -> tamanho;
+
+    ConstroiHeap(h);
+
+    for(int i = n - 1; i > 0; i--){
+        trocar(&h -> vetor[0], &h -> vetor[i]);
+        h -> tamanho --;
+        Heapfy(h, 0);
+    }
+
+    h -> tamanho = n;
+}
