@@ -43,9 +43,15 @@ int AlteraHeap(struct heap *heap, char nome[], int nova);
 void ConstroiHeap(struct heap *heap);
 
 //funcao responsavel por conferir se a fila de prioridades é um heap valido
-void ChecaHeap(struct heap *heap)
+void ChecaHeap(struct heap *heap);
 
 //funcao que implementa o algoritmo de ordenacao heapsort, usado para criar uma fila em ordem
-void HeapSort(struct heap *h)
+void HeapSort(struct heap *h);
+
+
+void QuickSort(struct heap *h, int a, int b, int *comparacoes, int *trocas);
+
+
+void SelectSort(struct heap *h, int *comparacoes, int *trocas);
 
 #endif
