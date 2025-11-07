@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP ALGORITMOS II 2025 - Pronto Socorro "Heap or Quick"</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 900px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        pre {
+            background-color: #eee;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: "Courier New", Courier, monospace;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .student-info {
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .texto-justificado{
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trabalho Prático de Algoritmos II (2025)</h1>
+        <div class="student-info">
+            <p><strong>Alunos:</strong> Gabriel de Oliveira Ostroski e Vincenzo Rigolino Costa</p>
+            <p><strong>Título:</strong> Pronto Socorro "Heap or Quick"</p>
+        </div>
+
+        <h2>Relatório</h2>
+
+        <h3>Commits</h3>
+        <p class="texto-justificado">
+            Começamos o projeto estudando as funções de heap que foram implementadas em aula, e após estuda-lás, começamos a adaptar as suas estruturas
+            para as implementar no contexto do trabalho. Revisamos alguns conceitos básicos de Heap, e estudamos como fazer todos esses processos com o uso de 
+            apontadores, essa foi a etapa mais demorada do projeto e a que mais fizemos alterações.
+            Depois de debugar as funções principais relacionadas ao Heap, começamos a implementar os algoritmos de ordenação (HeapSort, QuickSort e SelectSort).
+        </p>
+        <p class="texto-justificado">
+            Após esssa etapa ser realizada, com muito esforço, nos reunimos para implementar a função Main/Menu do pronto socorro.
+            No processo, tivemos dificuldade em pensar na funcionalidade do "Menu interativo". Após muitos commits, conseguimos fazer uma interface interativa que 
+            a enfermeira possa usar no seu dia a dia no hospital.
+        </p>
+        <p class="texto-justificado">
+            Em nossa última reunião, terminamos o relatório, assim como, o documento com os logs de teste. Além disso, implementamos o arquivo html na página pessoal do diferencial
+            (nessa etapa tivemos problemas para alterar as permissões da página pessoal do dinf, e até descobrir como, levou um certo tempo). 
+            Após muita busca, fizemos o upload de todos os arquivos relacionados ao trabalho em nossas páginas pessoais. E concluímos todas as etapas requisitadas.
+        </p>
+
+
+        <h3>Introdução</h3>
+        <p class="texto-justificado"> 
+            Este trabalho teve como objetivo a implementação de um sistema de fila de prioridades
+            para um "pronto-socorro", utilizando o Tipo Abstrato de Dados Heap. Também foram usados os 
+            algoritmos de ordenação HeapSort, QuickSort e SelectSort. O trabalho foi feito em conjunto 
+            com reuniões presenciais e online para a discussão de qual lógica seguir, além disso, também
+            fizemos um repositório no github, onde atualizamos cada passo da implementação.
+
+        </p>
+
+        <h3>Implementação do TAD Heap</h3>
+        <p class="texto-justificado">
+            O Heap foi implementado em um vetor, seguindo o modelo visto em sala de aula.
+            O principal diferencial em realção a estrutura vista em sala de aula, foi o uso de apontadores,
+            isso deixou o trabalho um pouco mais complexo mas foi interessante unir os conhecimentos das matérias de 
+            Alg II e Prog I. Sentimos dificuldades nas funções AlteraHeap e InsereHeap, pois além do uso de apontadores,
+            foi difícil implementar no contexto do Pronto Socorro.
+            As principais operações implementadas foram:
+        </p class="texto-justificado">
+        <ul>
+            <li><strong>Trocar:</strong> Essa é uma função comum usada para realizar trocas, aqui ela realiza a troca de "pacientes".</li>
+            <li><strong>InicHeap:</strong> Essa função é responsável por iniciar a fila a partir de um valor (0).</li>
+            <li><strong>Heapfy:</strong> Transforma a fila de prioridades (fila/vetor) em um heap máximo (estudado em aula).</li>
+            <li><strong>InsereHeap:</strong> Função responsável por inserir um paciente (elemento) novo na fila.</li>
+            <li><strong>RemoveHeap:</strong> Função responsável por remover um paciente (elemento) da fila.</li>
+            <li><strong>ImprimeHeap:</strong> Essa função irá imprimir o estado atual da fila (como é pedido na especificação, ela precisa estar disponível para impressão a qualquer momento).</li>
+            <li><strong>AlteraHeap:</strong> Essa função irá alterar a prioridade de um pacientes de acordo com as observações da enfermeira.</li>
+            <li><strong>ConstroiHeap:</strong> Essa função constrói o heap usando o heapfy</li>
+            <li><strong>ChecaHeap:</strong> Verifica se a estrutura/fila é um heap válido.</li>
+            <li><strong>HeapSort:</strong> Implementação do algoritmo de ordenação HeapSort.</li>
+        </ul>
+        
+        <h3>Implementação dos Algoritmos de Ordenação</h3>
+        <p class="texto-justificado">
+            Além do HeapSort, foi realizada a implementação dos algoritmos QuickSort e SelectSort para comparar os números de comparação e trocas realizados por cada algoritmo.
+            É interessante fazer essa comparação para podermos ter a prova prática de que cada algoritmo é executado de uma forma diferente, e que existem sim vantagens na escolha 
+            de qual algoritmo usar.
+            
+        </p>
+        <ul>
+            <li><strong>Mediana de Três:</strong> Essa função realiza a mediana entre o primeiro, meio e último elementos do (sub-)vetor. </li>
+            <li><strong>Particiona:</strong> É a função auxiliar principal do quicksort. Ela usa um pivô, definido na função da Mediana, particionar o vetor original
+            em dois segmentos do vetor, um com elemento menores, e outro com elementos maiores que o valor do pivô. </li>
+            <li><strong>QuickSort:</strong> Implementação do algoritmo de ordenação QuickSort recursivo.</li>
+            <li><strong>SelectSort:</strong> Implementação do algoritmo de ordenação SelectSort. </li>
+        </ul>
+    </div>
+</body>
+</html>

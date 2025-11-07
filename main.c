@@ -112,7 +112,7 @@ int main() {
             case 2: { // RemoveHeap
                 struct paciente removido;
                 if (RemoveHeap(&filaDePacientes, &removido)) {
-                    printf("Próximo na fila: %s (Prioridade: %d)\n", removido.paciente, removido.prioridade);
+                    printf("Paciente Removido: %s (Prioridade: %d)\n", removido.paciente, removido.prioridade);
                 } else {
                     printf("Fila vazia!\n");
                 }
