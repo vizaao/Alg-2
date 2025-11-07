@@ -7,13 +7,21 @@
 
 long long heap_comparacoes = 0;  //contador para sabermos o numero de comparaçoes no heap
 long long heap_trocas = 0; //contador para sabermos o numero de trocas realizads pelo heap no final da execucao
+long long quick_comparacoes = 0; //contador de comparacoes do quicksort
+long long quick_trocas = 0; //contador de trocas do quick
+long long select_comparacoes = 0; // contador de comparacoes do selectt
+long long select_trocas = 0; //contador de trocas do select
 
 
-void trocar (paciente *a, paciente *b){
+void trocar (int *a, int *b){
     paciente aux = *a;
     *a = *b;
     *b = aux;
     heap_trocas++;
+}
+
+void ImprimeCT(){
+    printf("Comparações: %d\nTrocas: %d\n", heap_comparacoes, heap_trocas);
 }
 
 void InicHeap (struct heap *heap){

@@ -1,16 +1,13 @@
 #ifndef fila_de_prioridades
 #define fila_de_prioridades
 
-#define true 1
-#define false 0
-
 #define Maximo_pacientes 1024
 #define Max_nome 20
 
 //definir a estrutura para os pacientes
 struct paciente { 
-    char paciente[Max_nome];
-    int prioridade;
+    char paciente[Max_nome]; 
+    int prioridade; //prioridadedo paciente, quanto maior o valor, maior a prioridade
 } paciente;
 
 struct heap{
@@ -20,6 +17,9 @@ struct heap{
 
 //funcao para trocar pacientes
 void trocar (paciente *a, paciente *b);
+
+//imprime a quantidade de trocas e comparações que o heap realiza
+void ImprimeCT();
 
 //função que inicia o heap
 void InicHeap (struct heap *Heap);
