@@ -116,23 +116,23 @@ void ChecaHeap(struct heap *heap) {
     printf("É Heap!\n");
 }
 
-void HeapSort(struct heap *h) {
-    int n = h->tamanho;
-    ConstroiHeap(h);
+void HeapSort(struct heap *heap) {
+    int n = heap->tamanho;
+    ConstroiHeap(heap);
     for (int i = n - 1; i > 0; i--) {
-        trocar(&h->vetor[0], &h->vetor[i]);
-        h->tamanho--;
-        Heapfy(h, 0);
+        trocar(&heap->vetor[0], &heap->vetor[i]);
+        heap->tamanho--;
+        Heapfy(heap, 0);
     }
-    h->tamanho = n;
+    heap->tamanho = n;
 }
 
 // retorna o índice da mediana entre o primeiro, meio e último
-int Mediana(struct heap *h, int a, int b) {
+int Mediana(struct heap *heap, int a, int b) {
     int meio = (a + b) / 2;
-    int x = h->vetor[a].prioridade;
-    int y = h->vetor[meio].prioridade;
-    int z = h->vetor[b].prioridade;
+    int x = heap->vetor[a].prioridade;
+    int y = heap->vetor[meio].prioridade;
+    int z = heap->vetor[b].prioridade;
 
     if ((x <= y && y <= z) || (z <= y && y <= x))
         return meio;
@@ -143,48 +143,48 @@ int Mediana(struct heap *h, int a, int b) {
 }
 
 // particiona o vetor de acordo com o pivô
-int Particiona(struct heap *h, int a, int b, int *comparacoes, int *trocas) {
-    int pivo_indice = Mediana(h, a, b);
-    int pivo_prio = h->vetor[pivo_indice].prioridade;
+int Particiona(struct heap *heap, int a, int b, int *comparacoes, int *trocas) {
+    int pivo_indice = Mediana(heap, a, b);
+    int pivo_prio = heap->vetor[pivo_indice].prioridade;
 
-    trocar(&h->vetor[pivo_indice], &h->vetor[b]);
+    trocar(&heap->vetor[pivo_indice], &heap->vetor[b]);
     (*trocas)++;
 
     int m = a - 1;
     for (int i = a; i <= b - 1; i++) {
         (*comparacoes)++;
-        if (h->vetor[i].prioridade <= pivo_prio) {
+        if (heap->vetor[i].prioridade <= pivo_prio) {
             m++;
-            trocar(&h->vetor[m], &h->vetor[i]);
+            trocar(&heap->vetor[m], &heap->vetor[i]);
             (*trocas)++;
         }
     }
-    trocar(&h->vetor[m + 1], &h->vetor[b]);
+    trocar(&heap->vetor[m + 1], &heap->vetor[b]);
     (*trocas)++;
     return m + 1;
 }
 
 // ordena por quicksort
-void QuickSort(struct heap *h, int a, int b, int *comparacoes, int *trocas) {
+void QuickSort(struct heap *heap, int a, int b, int *comparacoes, int *trocas) {
     if (a >= b) return;
-    int m = Particiona(h, a, b, comparacoes, trocas);
-    QuickSort(h, a, m - 1, comparacoes, trocas);
-    QuickSort(h, m + 1, b, comparacoes, trocas);
+    int m = Particiona(heap, a, b, comparacoes, trocas);
+    QuickSort(heap, a, m - 1, comparacoes, trocas);
+    QuickSort(heap, m + 1, b, comparacoes, trocas);
 }
 
 // ordena por selectsort
-void SelectSort(struct heap *h, int *comparacoes, int *trocas) {
+void SelectSort(struct heap *heap, int *comparacoes, int *trocas) {
     *comparacoes = 0;
     *trocas = 0;
-    for (int i = 0; i < h->tamanho - 1; i++) {
+    for (int i = 0; i < heap->tamanho - 1; i++) {
         int menor = i;
-        for (int j = i + 1; j < h->tamanho; j++) {
+        for (int j = i + 1; j < heap->tamanho; j++) {
             (*comparacoes)++;
-            if (h->vetor[j].prioridade < h->vetor[menor].prioridade)
+            if (heap->vetor[j].prioridade < heap->vetor[menor].prioridade)
                 menor = j;
         }
         if (menor != i) {
-            trocar(&h->vetor[i], &h->vetor[menor]);
+            trocar(&heap->vetor[i], &heap->vetor[menor]);
             (*trocas)++;
         }
     }
