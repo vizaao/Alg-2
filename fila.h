@@ -48,10 +48,17 @@ void ChecaHeap(struct heap *heap);
 //funcao que implementa o algoritmo de ordenacao heapsort, usado para criar uma fila em ordem
 void HeapSort(struct heap *h);
 
+// funcao que retorna o índice do elemento da mediana entre o primeiro, meio e último
+int Mediana(struct heap *h, int a, int b);
 
+// funcao que particiona o vetor de acordo com o pivô e conta comparações/trocas
+int Particiona(struct heap *h, int a, int b, int *comparacoes, int *trocas);
+
+
+// funcao que ordena o heap por quicksort recursivo visto em aula
 void QuickSort(struct heap *h, int a, int b, int *comparacoes, int *trocas);
 
-
+// funcao que ordena o vetor por selectsort e conta comparações/trocas
 void SelectSort(struct heap *h, int *comparacoes, int *trocas);
 
 #endif

@@ -139,7 +139,8 @@ void HeapSort(struct heap *h){
     h -> tamanho = n;
 }
 
-int mediana(struct heap *h, int a, int b){
+// retorna o índice do elemento da mediana entre o primeiro, meio e último
+int Mediana(struct heap *h, int a, int b){
     int meio = (a + b) / 2;
     int x = h -> vetor[a].prioridade;
     int y = h -> vetor[meio].prioridade;
@@ -153,15 +154,17 @@ int mediana(struct heap *h, int a, int b){
         return b;
 }
 
+// particiona o vetor de acordo com o pivô e conta comparações/trocas
 int Particiona(struct heap *h, int a, int b, int *comparacoes, int *trocas){
-    int pivo_indice = mediana(h, a, b);
+    int pivo_indice = mediana(h, a, b); 
     int pivo_prio = h -> vetor[pivo_indice].prioridade;  
-    trocar(&h -> vetor[pivo_indice], &h -> vetor[b]);
+    trocar(&h -> vetor[pivo_indice], &h -> vetor[b]); 
     (*trocas)++;
 
     int m = a - 1;
     for (int i = a; i <= b - 1; i++) {
         (*comparacoes)++;
+
         if (h -> vetor[i].prioridade <= pivo_prio) {
             m++;
             trocar(&h -> vetor[m], &h -> vetor[i]);
@@ -174,16 +177,18 @@ int Particiona(struct heap *h, int a, int b, int *comparacoes, int *trocas){
     return m + 1;
 }
 
-void quicksort(struct heap *h, int a, int b, int *comparacoes, int *trocas){
+// ordena o heap por quicksort recursivo visto em aula
+void Quicksort(struct heap *h, int a, int b, int *comparacoes, int *trocas){
     if (a >= b)
         return;
 
-    int m = Particiona(h, a, b, comparacoes, trocas);
-    quicksort(h, a, m - 1, comparacoes, trocas);
-    quicksort(h, m + 1, b, comparacoes, trocas);
+    int m = Particiona(h, a, b, comparacoes, trocas); // particiona
+    quicksort(h, a, m - 1, comparacoes, trocas); // ordena à esquerda
+    quicksort(h, m + 1, b, comparacoes, trocas); // ordena à direita
 }
 
-void selectsort(int vetor[], int n, int *comparacoes, int *trocas){
+// ordena o vetor por selectsort
+void Selectsort(int vetor[], int n, int *comparacoes, int *trocas){
     *comparacoes = 0;
     *trocas = 0;
 
