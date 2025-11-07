@@ -205,4 +205,3 @@ void selectsort(int vetor[], int n, int *comparacoes, int *trocas){
         }
     }
 }
-
